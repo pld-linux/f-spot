@@ -1,23 +1,28 @@
 Summary:	Personal photo manager
 Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.0.6
+Version:	0.0.8
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	c392789568f2140bd3e018465ee2acb7
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/f-spot/0.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	e50bbd5eda8221f606b802b4d1ce77dd
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel
 BuildRequires:	dotnet-gtk-sharp-devel >= 1.0
 BuildRequires:	intltool >= 0.21
-BuildRequires:	lcms-devel
+BuildRequires:	lcms-devel >= 1.12
 BuildRequires:	libexif-devel >= 1:0.5.7
 BuildRequires:	libgnomeui-devel >= 2.4.0
+BuildRequires:	libgphoto2-devel >= 2.1.4
 BuildRequires:	libjpeg-devel
+BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.0
 BuildRequires:	sqlite-devel >= 2.8.6
 BuildRequires:	pkgconfig
+Requires:	dotnet-gtk-sharp >= 1.0
+Requires:	mono >= 1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,6 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
+
 %find_lang %{name}
 
 %clean
@@ -54,5 +61,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.exe
 %attr(755,root,root) %{_libdir}/%{name}/lib*.so*
-%{_libdir}/%{name}/lib*.la
+%{_libdir}/%{name}/*.dll
 %{_libdir}/%{name}/*.exe.config
