@@ -1,5 +1,5 @@
 Summary:	Personal photo manager
-Summary(pl):	Aplikacja do zarz±dzania zdjêciami
+Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.0.1
 Release:	1
@@ -22,8 +22,8 @@ F-Spot is an application designed to provide personal photo management
 to the GNOME desktop.
 
 %description -l pl
-F-Spot jest aplikacj± s³u¿±c± do zarz±dzania zdjêciami w ¶rodowisku
-GNOME.
+F-Spot jest prywatnym mened¿erem galerii fotograficznych dla
+¶rodowiska GNOME.
 
 %prep
 %setup -q
