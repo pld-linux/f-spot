@@ -10,7 +10,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/0.0/%{name}-%{version}.t
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel
 BuildRequires:	gtk-sharp-devel >= 0.17
-BuildRequires:	libexif-devel >= 0.5.7
+BuildRequires:	libexif-devel >= 1:0.5.7
 BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	mono-csharp >= 0.28
