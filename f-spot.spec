@@ -15,7 +15,7 @@ BuildRequires:	libexif-devel >= 1:0.5.7
 BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	mono-csharp >= 1.0
-BuildRequires:	sqlite-devel >= 2.8.6
+BuildRequires:	sqlite2-devel >= 2.8.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,7 +30,8 @@ F-Spot jest prywatnym mened¿erem galerii fotograficznych dla
 %setup -q
 
 %build
-%configure
+%configure \
+	--disable-static
 %{__make}
 
 %install
