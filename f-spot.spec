@@ -2,17 +2,18 @@ Summary:	Personal photo manager
 Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.0.12
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/f-spot/0.0/%{name}-%{version}.tar.bz2
 # Source0-md5:	92e95c633b20a167e4ec88f3b855f12f
+Patch0:		%{name}-exif.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel
 BuildRequires:	dotnet-gtk-sharp-devel >= 1.0
 BuildRequires:	intltool >= 0.21
 BuildRequires:	lcms-devel >= 1.12
-BuildRequires:	libexif-devel >= 1:0.5.7
+BuildRequires:	libexif-devel >= 1:0.6.12
 BuildRequires:	libgnomeui-devel >= 2.4.0
 BuildRequires:	libgphoto2-devel >= 2.1.4
 BuildRequires:	libjpeg-devel
@@ -35,8 +36,12 @@ F-Spot jest prywatnym mened¿erem galerii fotograficznych dla
 
 %prep
 %setup -q
+# the problem fixed by exif patch is fixed in f-spot cvs
+# http://mail.gnome.org/archives/f-spot-list/2005-March/msg00020.html
+%patch0 -p1
 
 %build
+autoreconf
 %configure \
 	--disable-static
 %{__make}
