@@ -1,0 +1,11 @@
+--- f-spot-0.0.12/configure.in.orig	2005-05-15 17:53:20.000000000 +0200
++++ f-spot-0.0.12/configure.in	2005-05-15 17:53:32.000000000 +0200
+@@ -101,7 +101,7 @@
+ if test "x$have_old_libexif" = "xyes"; then
+ 	EXIF_SOVERSION=9
+ else
+-	EXIF_SOVERSION=10
++	EXIF_SOVERSION=12
+ fi
+ AC_SUBST(EXIF_SOVERSION)
+ 
