@@ -1,0 +1,12 @@
+diff -urN f-spot-0.0.13.orig/f-spot.desktop.in.in f-spot-0.0.13/f-spot.desktop.in.in
+--- f-spot-0.0.13.orig/f-spot.desktop.in.in	2005-05-16 10:45:34.000000000 +0200
++++ f-spot-0.0.13/f-spot.desktop.in.in	2005-05-16 10:47:26.000000000 +0200
+@@ -8,7 +8,7 @@
+ StartupNotify=true
+ Terminal=false
+ Type=Application
+-Categories=Application;Graphics;Photograph;
++Categories=GTK:GNOME;Graphics;Photograph;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=f-spot
+ X-GNOME-Bugzilla-Component=General
