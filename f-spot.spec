@@ -10,7 +10,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.0/%{name}-%{version}.ta
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel
-BuildRequires:	dotnet-gtk-sharp-devel >= 1.0
+BuildRequires:	dotnet-gtk-sharp-gnome-devel >= 1.0
 BuildRequires:	intltool >= 0.21
 BuildRequires:	lcms-devel >= 1.12
 BuildRequires:	libexif-devel >= 1:0.6.12
