@@ -23,8 +23,6 @@ BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.0
 BuildRequires:	sqlite-devel >= 2.8.6
 BuildRequires:	pkgconfig
-Requires:	dotnet-gtk-sharp2 >= 2.3.90
-Requires:	mono >= 1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
