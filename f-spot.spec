@@ -2,17 +2,20 @@
 Summary:	Personal photo manager
 Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.1.3
+Version:	0.1.4
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	3c08f01ca24ae2847f11bf47db878c29
+# Source0-md5:	8a62901528b6c32e5f142b7c6302222e
 Patch0:		%{name}-desktop.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	dotnet-dbus-sharp-devel
-BuildRequires:	dotnet-gtk-sharp2-gnome-devel >= 1.9.5
+BuildRequires:	dotnet-gtk-sharp2-gnome-devel >= 2.1
+BuildRequires:	gettext-devel
 BuildRequires:	intltool >= 0.21
 BuildRequires:	lcms-devel >= 1.12
 BuildRequires:	libexif-devel >= 1:0.6.12
@@ -21,9 +24,11 @@ BuildRequires:	libgphoto2-devel >= 2.1.4
 BuildRequires:	libjpeg-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	mono-csharp >= 1.0
-BuildRequires:	sqlite-devel >= 2.8.6
+BuildRequires:	mono-csharp >= 1.1.7
 BuildRequires:	pkgconfig
+BuildRequires:  rpmbuild(macros) >= 1.197                                                                               
+BuildRequires:	sqlite-devel >= 2.8.6
+Requires(post,postun):	desktop-file-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -39,7 +44,10 @@ F-Spot jest prywatnym mened¿erem galerii fotograficznych dla
 %patch0 -p1
 
 %build
-autoreconf
+%{__intltoolize}
+%{__aclocal}
+%{__automake}
+%{__autoconf}
 %configure \
 	--disable-static
 %{__make}
@@ -57,6 +65,12 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_desktop_database_post
+
+%postun
+%update_desktop_database_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
