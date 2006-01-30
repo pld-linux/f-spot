@@ -26,7 +26,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.7
 BuildRequires:	pkgconfig
-BuildRequires:  rpmbuild(macros) >= 1.197
+BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	sqlite-devel >= 2.8.6
 Requires(post,postun):	desktop-file-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
