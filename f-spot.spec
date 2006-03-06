@@ -9,6 +9,7 @@ Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.1/%{name}-%{version}.tar.bz2
 # Source0-md5:	a49b74f2ac28011d12ce9e2fd5fe4831
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-exec.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -42,6 +43,7 @@ F-Spot jest prywatnym mened¿erem galerii fotograficznych dla
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__intltoolize}
