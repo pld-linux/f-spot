@@ -1,8 +1,9 @@
---- f-spot-0.1.10/src/f-spot.in.orig	2006-03-06 19:17:48.000000000 +0000
-+++ f-spot-0.1.10/src/f-spot.in	2006-03-06 19:18:03.000000000 +0000
-@@ -12,4 +12,4 @@
-     EXE_TO_RUN="$libdir/f-spot/f-spot.exe"
- fi
+diff -aurN f-spot-0.1.11.orig/src/f-spot.in f-spot-0.1.11/src/f-spot.in
+--- f-spot-0.1.11.orig/src/f-spot.in	2006-03-01 08:51:19.000000000 +0100
++++ f-spot-0.1.11/src/f-spot.in	2006-03-13 22:54:40.586502432 +0100
+@@ -17,4 +17,4 @@
+ 	echo "*** Running F-Spot in Debug Mode ***"
+ esac
  
--exec -a @PACKAGE@ mono $EXE_TO_RUN "$@"
-+exec mono $EXE_TO_RUN "$@"
+-exec -a @PACKAGE@ mono $MONO_OPTIONS $EXE_TO_RUN "$@"
++exec mono $MONO_OPTIONS $EXE_TO_RUN "$@"
