@@ -25,7 +25,7 @@ BuildRequires:	intltool >= 0.21
 BuildRequires:	lcms-devel >= 1.12
 BuildRequires:	libexif-devel >= 1:0.6.12
 BuildRequires:	libgnomeui-devel >= 2.4.0
-BuildRequires:	libgphoto2-devel >= 2.1.4
+BuildRequires:	libgphoto2-devel >= 2.1.99
 BuildRequires:	libjpeg-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
@@ -33,7 +33,6 @@ BuildRequires:	mono-csharp >= 1.1.7
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	sqlite-devel >= 2.8.6
-Requires:		libgphoto2 >= 2.1.99
 Requires(post,postun):	desktop-file-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
