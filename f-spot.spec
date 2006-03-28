@@ -44,7 +44,7 @@ F-Spot jest prywatnym menedøerem galerii fotograficznych dla
 
 %package screensaver
 Summary:	Module for gnome-screensaver
-Summary(pl):	Modu≈Ç dla gnome-screensaver
+Summary(pl):	Modu≥ dla gnome-screensavera
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnome-screensaver
@@ -53,7 +53,7 @@ Requires:	gnome-screensaver
 F-Spot module for gnome-screensaver.
 
 %description -l pl screensaver
-Modu≈Ç F-Spot dla gnome-screensaver.
+Modu≥ F-Spot dla gnome-screensavera.
 
 %prep
 %setup -q
