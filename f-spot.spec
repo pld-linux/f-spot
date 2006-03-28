@@ -1,19 +1,17 @@
-#
-# TODO:
-# - package gnome-screensver thingy
-#
+
 %include	/usr/lib/rpm/macros.mono
 Summary:	Personal photo manager
 Summary(pl):	Menedøer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.1.11
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.1/%{name}-%{version}.tar.bz2
 # Source0-md5:	d4d75f6a5272fa15b5658abdf708b050
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-exec.patch
+Patch2:		%{name}-dir.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -44,10 +42,24 @@ to the GNOME desktop.
 F-Spot jest prywatnym menedøerem galerii fotograficznych dla
 ∂rodowiska GNOME.
 
+%package screensaver
+Summary:	Module for gnome-screensaver
+Summary(pl):	Modu≈Ç dla gnome-screensaver
+Group:		X11/Applications
+Requires:	%{name} = %{version}-%{release}
+Requires:	gnome-screensaver
+
+%description screensaver
+F-Spot module for gnome-screensaver.
+
+%description -l pl screensaver
+Modu≈Ç F-Spot dla gnome-screensaver.
+
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 %build
 %{__intltoolize}
@@ -90,3 +102,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/*.exe.config
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*.png
+
+%files screensaver
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gnome-screensaver/f-spot-screensaver
+%{_datadir}/gnome-screensaver/themes/f-spot-screensaver.desktop
