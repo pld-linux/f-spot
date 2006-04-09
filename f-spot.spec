@@ -20,7 +20,6 @@ BuildRequires:	automake
 BuildRequires:	dotnet-dbus-sharp-devel
 BuildRequires:	dotnet-gtk-sharp2-gnome-devel >= 2.7
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-screensaver
 BuildRequires:	intltool >= 0.21
 BuildRequires:	lcms-devel >= 1.12
 BuildRequires:	libexif-devel >= 1:0.6.12
@@ -70,14 +69,20 @@ Modu³ F-Spot dla gnome-screensavera.
 %{__automake}
 %{__autoconf}
 %configure \
-	--disable-static
-%{__make}
+	--disable-static \
+	--with-gnome-screensaver=%{_prefix}
+
+%{__make} \
+	saverdir=%{_libdir}/gnome-screensaver \
+	themesdir=%{_datadir}/gnome-screensaver/themes
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	saverdir=%{_libdir}/gnome-screensaver \
+	themesdir=%{_datadir}/gnome-screensaver/themes
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
