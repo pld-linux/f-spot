@@ -53,7 +53,7 @@ Requires:	gnome-screensaver
 %description screensaver
 F-Spot module for gnome-screensaver.
 
-%description -l pl screensaver
+%description screensaver -l pl
 Modu³ F-Spot dla gnome-screensavera.
 
 %prep
