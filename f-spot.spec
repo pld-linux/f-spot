@@ -1,10 +1,11 @@
-
+#
 %include	/usr/lib/rpm/macros.mono
+#
 Summary:	Personal photo manager
 Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.1.11
-Release:	6
+Release:	7
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.1/%{name}-%{version}.tar.bz2
@@ -14,21 +15,21 @@ Patch1:		%{name}-exec.patch
 Patch2:		%{name}-dir.patch
 Patch3:		%{name}-utf8.patch
 URL:		http://www.gnome.org/projects/f-spot/
-BuildRequires:	GConf2-devel
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dotnet-dbus-sharp-devel
-BuildRequires:	dotnet-gtk-sharp2-gnome-devel >= 2.7
+BuildRequires:	dotnet-dbus-sharp-devel >= 0.63
+BuildRequires:	dotnet-gnome-sharp-devel >= 2.15.0
 BuildRequires:	gettext-devel
-BuildRequires:	intltool >= 0.21
+BuildRequires:	intltool >= 0.35
 BuildRequires:	lcms-devel >= 1.12
-BuildRequires:	libexif-devel >= 1:0.6.12
-BuildRequires:	libgnomeui-devel >= 2.4.0
-BuildRequires:	libgphoto2-devel >= 2.1.99
+BuildRequires:	libexif-devel >= 1:0.6.13
+BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	libgphoto2-devel >= 2.2.1
 BuildRequires:	libjpeg-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	mono-csharp >= 1.1.7
+BuildRequires:	mono-csharp >= 1.1.16.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	sqlite-devel >= 2.8.6
@@ -74,7 +75,7 @@ Modu³ F-Spot dla gnome-screensavera.
 
 %{__make} \
 	saverdir=%{_libdir}/gnome-screensaver \
-	themesdir=%{_datadir}/gnome-screensaver/themes
+	themesdir=%{_desktopdir}/screensavers
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -82,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	saverdir=%{_libdir}/gnome-screensaver \
-	themesdir=%{_datadir}/gnome-screensaver/themes
+	themesdir=%{_desktopdir}/screensavers
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
@@ -114,4 +115,4 @@ rm -rf $RPM_BUILD_ROOT
 %files screensaver
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gnome-screensaver/f-spot-screensaver
-%{_datadir}/gnome-screensaver/themes/f-spot-screensaver.desktop
+%{_desktopdir}/screensavers/f-spot-screensaver.desktop
