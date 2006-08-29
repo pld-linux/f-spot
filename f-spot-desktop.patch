@@ -1,18 +1,18 @@
-diff -aurN f-spot-0.1.8.orig/f-spot.desktop.in.in f-spot-0.1.8/f-spot.desktop.in.in
---- f-spot-0.1.8.orig/f-spot.desktop.in.in	2006-01-23 03:44:52.000000000 +0100
-+++ f-spot-0.1.8/f-spot.desktop.in.in	2006-01-30 17:58:21.540754000 +0100
+diff -aurN f-spot-0.2.0.orig/f-spot.desktop.in.in f-spot-0.2.0/f-spot.desktop.in.in
+--- f-spot-0.2.0.orig/f-spot.desktop.in.in	2006-08-29 00:40:00.000000000 +0200
++++ f-spot-0.2.0/f-spot.desktop.in.in	2006-08-29 07:39:04.000000000 +0200
 @@ -9,7 +9,7 @@
  StartupNotify=true
  Terminal=false
  Type=Application
--Categories=Application;Graphics;Photograph;GNOME;GTK
-+Categories=GTK;GNOME;Graphics;Photograph;
+-Categories=Application;Graphics;Photography;GNOME;GTK
++Categories=GTK;GNOME;Graphics;Photography;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=f-spot
  X-GNOME-Bugzilla-Component=General
-diff -aurN f-spot-0.1.8.orig/f-spot-view.desktop.in f-spot-0.1.8/f-spot-view.desktop.in
---- f-spot-0.1.8.orig/f-spot-view.desktop.in	2006-01-23 03:44:52.000000000 +0100
-+++ f-spot-0.1.8/f-spot-view.desktop.in	2006-01-30 17:58:54.130754000 +0100
+diff -aurN f-spot-0.2.0.orig/f-spot-view.desktop.in f-spot-0.2.0/f-spot-view.desktop.in
+--- f-spot-0.2.0.orig/f-spot-view.desktop.in	2006-02-06 20:03:42.000000000 +0100
++++ f-spot-0.2.0/f-spot-view.desktop.in	2006-08-29 07:36:05.000000000 +0200
 @@ -10,7 +10,7 @@
  StartupNotify=false
  Terminal=false
