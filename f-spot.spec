@@ -4,22 +4,21 @@
 Summary:	Personal photo manager
 Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.1.11
-Release:	7
+Version:	0.2.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	d4d75f6a5272fa15b5658abdf708b050
+Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	be98064e6615e6cad81fd7b11f15fe1e
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-exec.patch
 Patch2:		%{name}-dir.patch
-Patch3:		%{name}-utf8.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dotnet-dbus-sharp-devel >= 0.63
-BuildRequires:	dotnet-gnome-sharp-devel >= 2.15.0
+BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	gettext-devel
 BuildRequires:	intltool >= 0.35
 BuildRequires:	lcms-devel >= 1.12
@@ -62,7 +61,6 @@ Modu³ F-Spot dla gnome-screensavera.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p0
-%patch3 -p0
 
 %build
 %{__intltoolize}
@@ -86,7 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 	themesdir=%{_desktopdir}/screensavers
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name}
 
