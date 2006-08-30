@@ -1,38 +1,40 @@
-
+#
 %include	/usr/lib/rpm/macros.mono
+#
 Summary:	Personal photo manager
 Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.1.11
-Release:	6
+Version:	0.2.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	d4d75f6a5272fa15b5658abdf708b050
+Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	be98064e6615e6cad81fd7b11f15fe1e
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-exec.patch
 Patch2:		%{name}-dir.patch
-Patch3:		%{name}-utf8.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dotnet-dbus-sharp-devel
-BuildRequires:	dotnet-gtk-sharp2-gnome-devel >= 2.7
+BuildRequires:	dotnet-dbus-sharp-devel >= 0.62
+BuildRequires:	dotnet-gtk-sharp2-gnome-devel >= 2.8.2
 BuildRequires:	gettext-devel
 BuildRequires:	intltool >= 0.21
 BuildRequires:	lcms-devel >= 1.12
 BuildRequires:	libexif-devel >= 1:0.6.12
 BuildRequires:	libgnomeui-devel >= 2.4.0
-BuildRequires:	libgphoto2-devel >= 2.1.99
+BuildRequires:	libgphoto2-devel >= 2.2.1
 BuildRequires:	libjpeg-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	mono-csharp >= 1.1.7
+BuildRequires:	mono-csharp >= 1.1.13.8
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	sqlite-devel >= 2.8.6
 Requires(post,postun):	desktop-file-utils
+ExclusiveArch:	%{ix86} %{x8664} arm hppa ia64 ppc s390 s390x
+ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,7 +63,6 @@ Modu³ F-Spot dla gnome-screensavera.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p0
-%patch3 -p0
 
 %build
 %{__intltoolize}
@@ -85,7 +86,6 @@ rm -rf $RPM_BUILD_ROOT
 	themesdir=%{_datadir}/gnome-screensaver/themes
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name}
 
