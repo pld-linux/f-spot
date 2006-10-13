@@ -4,12 +4,12 @@
 Summary:	Personal photo manager
 Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.2.1
+Version:	0.2.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	75e9823a1cb32ebba43c533556d12bdb
+# Source0-md5:	69b4e70546b4ab1d7dcc7095fcfa65cd
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-exec.patch
 Patch2:		%{name}-dir.patch
@@ -108,6 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/*.exe.config
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*.png
+%{_pkgconfigdir}/f-spot.pc
 
 %files screensaver
 %defattr(644,root,root,755)
