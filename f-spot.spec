@@ -4,12 +4,12 @@
 Summary:	Personal photo manager
 Summary(pl):	Mened¿er prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.2.2
+Version:	0.3.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	69b4e70546b4ab1d7dcc7095fcfa65cd
+Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.3/%{name}-%{version}.tar.bz2
+# Source0-md5:	bd140d6c124d311cc22a3442d6cf4344
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-exec.patch
 Patch2:		%{name}-dir.patch
@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
 
-%find_lang %{name}
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -100,6 +100,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
+%{_iconsdir}/hicolor/*/apps/%{name}.*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.exe
 %attr(755,root,root) %{_libdir}/%{name}/lib*.so*
@@ -107,7 +108,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/*.dll.config
 %{_libdir}/%{name}/*.exe.config
 %{_desktopdir}/*.desktop
-%{_pixmapsdir}/*.png
 %{_pkgconfigdir}/f-spot.pc
 
 %files screensaver
