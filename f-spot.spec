@@ -14,7 +14,6 @@ Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-exec.patch
 Patch2:		%{name}-dir.patch
 Patch3:		%{name}-fs.patch
-#Patch4:		%{name}-typo.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
@@ -66,7 +65,6 @@ Modu³ F-Spot dla gnome-screensavera.
 %patch1 -p1
 %patch2 -p0
 %patch3 -p1
-#%patch4 -p1
 
 %build
 %{__intltoolize}
