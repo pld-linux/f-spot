@@ -4,12 +4,12 @@
 Summary:	Personal photo manager
 Summary(pl.UTF-8):   Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.3.2
+Version:	0.3.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	1084f359ee7de5a4d24ed37a72b1342a
+# Source0-md5:	c1f26fd63e5e43c3e2d4bb6639377565
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-exec.patch
 Patch2:		%{name}-dir.patch
@@ -36,6 +36,7 @@ BuildRequires:	sqlite-devel >= 2.8.6
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
+Requires(post,postun):	scrollkeeper
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -73,6 +74,7 @@ Moduł F-Spot dla gnome-screensavera.
 %{__autoconf}
 %configure \
 	--disable-static \
+	--disable-scrollkeeper \
 	--with-gnome-screensaver=%{_prefix}
 
 %{__make} \
@@ -95,10 +97,12 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%scrollkeeper_update_post
 %update_desktop_database_post
 %update_icon_cache hicolor
 
 %postun
+%scrollkeeper_update_postun
 %update_desktop_database_postun
 %update_icon_cache hicolor
 
@@ -114,6 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/*.dll.config
 %{_libdir}/%{name}/*.exe.config
 %{_desktopdir}/*.desktop
+%{_omf_dest_dir}/%{name}
 %{_pkgconfigdir}/f-spot.pc
 
 %files screensaver
