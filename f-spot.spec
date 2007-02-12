@@ -2,7 +2,7 @@
 %include	/usr/lib/rpm/macros.mono
 #
 Summary:	Personal photo manager
-Summary(pl):	Menedøer prywatnych galerii fotograficznych
+Summary(pl.UTF-8):   Mened≈ºer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.3.2
 Release:	1
@@ -42,13 +42,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 F-Spot is an application designed to provide personal photo management
 to the GNOME desktop.
 
-%description -l pl
-F-Spot jest prywatnym menedøerem galerii fotograficznych dla
-∂rodowiska GNOME.
+%description -l pl.UTF-8
+F-Spot jest prywatnym mened≈ºerem galerii fotograficznych dla
+≈õrodowiska GNOME.
 
 %package screensaver
 Summary:	Module for gnome-screensaver
-Summary(pl):	Modu≥ dla gnome-screensavera
+Summary(pl.UTF-8):   Modu≈Ç dla gnome-screensavera
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 Requires:	gnome-screensaver
@@ -56,8 +56,8 @@ Requires:	gnome-screensaver
 %description screensaver
 F-Spot module for gnome-screensaver.
 
-%description screensaver -l pl
-Modu≥ F-Spot dla gnome-screensavera.
+%description screensaver -l pl.UTF-8
+Modu≈Ç F-Spot dla gnome-screensavera.
 
 %prep
 %setup -q
