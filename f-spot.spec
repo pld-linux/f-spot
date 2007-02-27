@@ -5,7 +5,7 @@ Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.3.4
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.3/%{name}-%{version}.tar.bz2
