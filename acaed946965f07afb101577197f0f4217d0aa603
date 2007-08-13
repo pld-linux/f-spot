@@ -1,0 +1,3 @@
+- added experimental support for deleting files from camera
+   during import. Bug #321596
+- release 1.1
