@@ -1,21 +1,25 @@
 #
+# TODO:
+#	- update aflinta's delete.patch
+#	- update desktop patch
+#	- check if fs patch is still needed, propably causes weird effects on my box
+#
 %include	/usr/lib/rpm/macros.mono
 #
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.3.5
-Release:	2
+Version:	0.4.0
+Release:	0.5
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/pub/gnome/sources/f-spot/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	dafa8ac8149b80d010cecee3629e39b5
+Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	0f21ff56d310329185cc17a2fadda5fe
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-exec.patch
 Patch2:		%{name}-dir.patch
 Patch3:		%{name}-fs.patch
 Patch4:		%{name}-delete.patch
-Patch5:		%{name}-picassaweb.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
@@ -64,12 +68,11 @@ Moduł F-Spot dla gnome-screensavera.
 
 %prep
 %setup -q
-%patch0 -p1
+#%%patch0 -p1
 %patch1 -p1
 %patch2 -p0
 %patch3 -p1
-%patch4 -p0
-%patch5 -p1
+#%patch4 -p0
 
 %build
 %{__intltoolize}
@@ -114,9 +117,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
-%{_iconsdir}/hicolor/*/apps/%{name}.*
+%{_datadir}/%{name}
+%{_iconsdir}/hicolor/*/*/*.*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/*.exe
+%{_libdir}/%{name}/*.addins
+%dir %{_libdir}/%{name}/extensions
+%{_libdir}/%{name}/extensions/*
 %attr(755,root,root) %{_libdir}/%{name}/lib*.so*
 %{_libdir}/%{name}/*.dll
 %{_libdir}/%{name}/*.dll.config
