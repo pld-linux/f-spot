@@ -1,7 +1,6 @@
 #
 # TODO:
 #	- update aflinta's delete.patch
-#	- update desktop patch
 #	- check if fs patch is still needed, propably causes weird effects on my box
 #
 %include	/usr/lib/rpm/macros.mono
@@ -68,7 +67,7 @@ Moduł F-Spot dla gnome-screensavera.
 
 %prep
 %setup -q
-#%%patch0 -p1
+%patch0 -p1
 %patch1 -p1
 %patch2 -p0
 %patch3 -p1
