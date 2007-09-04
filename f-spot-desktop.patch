@@ -5,7 +5,7 @@ diff -aurN f-spot-0.2.0.orig/f-spot.desktop.in.in f-spot-0.2.0/f-spot.desktop.in
  StartupNotify=true
  Terminal=false
  Type=Application
--Categories=Application;Graphics;Photography;GNOME;GTK
+-Categories=Graphics;Photography;GNOME;GTK;
 +Categories=GTK;GNOME;Graphics;Photography;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=f-spot
@@ -17,7 +17,7 @@ diff -aurN f-spot-0.2.0.orig/f-spot-view.desktop.in f-spot-0.2.0/f-spot-view.des
  StartupNotify=false
  Terminal=false
  Type=Application
--Categories=Application;Graphics;Viewer;GNOME;GTK
+-Categories=Graphics;Viewer;GNOME;GTK;
 +Categories=GTK;GNOME;Graphics;Viewer;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=f-spot
