@@ -14,12 +14,11 @@ License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.4/%{name}-%{version}.tar.bz2
 # Source0-md5:	0f21ff56d310329185cc17a2fadda5fe
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-exec.patch
-Patch2:		%{name}-dir.patch
-Patch3:		%{name}-fs.patch
-Patch4:		%{name}-delete.patch
-Patch5:		%{name}-dbus.patch
+Patch0:		%{name}-exec.patch
+Patch1:		%{name}-dir.patch
+Patch2:		%{name}-fs.patch
+Patch3:		%{name}-delete.patch
+Patch4:		%{name}-dbus.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
@@ -68,11 +67,10 @@ Moduł F-Spot dla gnome-screensavera.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p0
-%patch3 -p1
-#%patch4 -p0
-%patch5 -p1
+%patch1 -p0
+%patch2 -p1
+#%patch3 -p0
+%patch4 -p1
 
 %build
 %{__intltoolize}
