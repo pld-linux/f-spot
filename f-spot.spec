@@ -34,7 +34,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
-BuildRequires:	ndesk-dbus-glib
+BuildRequires:	dotnet-ndesk-dbus-glib-sharp
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sqlite-devel >= 2.8.6
