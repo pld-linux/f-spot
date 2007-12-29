@@ -1,6 +1,6 @@
---- f-spot-0.2.2/src/MainWindow.cs	2006-10-06 02:23:08.000000000 +0100
-+++ f-spot-0.2.2.new/src/MainWindow.cs	2006-11-20 04:55:56.000000000 +0000
-@@ -1999,6 +1999,13 @@
+--- f-spot-0.4.1/src/MainWindow.cs.orig	2007-12-29 18:48:46.000000000 +0000
++++ f-spot-0.4.1/src/MainWindow.cs	2007-12-29 18:43:59.000000000 +0000
+@@ -2099,6 +2099,13 @@
  		int active = Math.Max (ActiveIndex (), 0);
  		if (fsview == null) {
  			fsview = new FSpot.FullScreenView (query);
@@ -12,5 +12,19 @@
 +			fsview.SetDefaultSize(bounds.Width, bounds.Height);
 +
  			fsview.Destroyed += HandleFullScreenViewDestroy;
-             fsview.View.Item.Index = active;
-             ColorDialog.SwitchViews (fsview.View);
+ 			fsview.View.Item.Index = active;
+ 			ColorDialog.SwitchViews (fsview.View);
+@@ -2142,6 +2149,13 @@
+ 		int active = Math.Max (ActiveIndex (), 0);
+ 		if (fsview == null) {
+ 			fsview = new FSpot.FullScreenView (query);
++
++			Gdk.Screen screen = fsview.Screen;
++			int monitor = screen.GetMonitorAtWindow (main_window.GdkWindow);
++			Gdk.Rectangle bounds = screen.GetMonitorGeometry(monitor);
++			fsview.Move(bounds.X, 0);
++			fsview.SetDefaultSize(bounds.Width, bounds.Height);
++
+ 			fsview.Destroyed += HandleFullScreenViewDestroy;
+ 			fsview.View.Item.Index = active;
+ 			ColorDialog.SwitchViews (fsview.View);
