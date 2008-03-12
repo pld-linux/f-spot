@@ -1,6 +1,6 @@
---- f-spot-0.4.1/src/MainWindow.cs.orig	2007-12-29 18:48:46.000000000 +0000
-+++ f-spot-0.4.1/src/MainWindow.cs	2007-12-29 18:43:59.000000000 +0000
-@@ -2099,6 +2099,13 @@
+--- f-spot-0.4.2/src/MainWindow.cs.orig	2008-02-14 22:26:50.000000000 +0000
++++ f-spot-0.4.2/src/MainWindow.cs	2008-03-12 14:48:14.000000000 +0000
+@@ -2067,6 +2067,13 @@
  		int active = Math.Max (ActiveIndex (), 0);
  		if (fsview == null) {
  			fsview = new FSpot.FullScreenView (query);
@@ -14,7 +14,7 @@
  			fsview.Destroyed += HandleFullScreenViewDestroy;
  			fsview.View.Item.Index = active;
  			ColorDialog.SwitchViews (fsview.View);
-@@ -2142,6 +2149,13 @@
+@@ -2110,6 +2117,13 @@
  		int active = Math.Max (ActiveIndex (), 0);
  		if (fsview == null) {
  			fsview = new FSpot.FullScreenView (query);
