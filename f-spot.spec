@@ -18,6 +18,7 @@ Patch0:		%{name}-exec.patch
 Patch1:		%{name}-dir.patch
 Patch2:		%{name}-fs.patch
 Patch3:		%{name}-delete.patch
+# http://bugzilla.gnome.org/show_bug.cgi?id=516620
 Patch4:		%{name}-DESTDIR.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
