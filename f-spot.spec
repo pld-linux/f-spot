@@ -90,6 +90,20 @@ Moduł F-Spot dla gnome-screensavera.
 	--disable-scrollkeeper \
 	--with-gnome-screensaver=%{_prefix}
 
+# <make-jN-workaround>
+%{__make} -C extensions/FlickrExport/FlickrNet \
+	saverdir=%{_libdir}/gnome-screensaver \
+	themesdir=%{_desktopdir}/screensavers
+
+%{__make} -C extensions/PicasaWebExport/google-sharp \
+	saverdir=%{_libdir}/gnome-screensaver \
+	themesdir=%{_desktopdir}/screensavers
+
+%{__make} -C extensions/SmugMugExport/SmugMugNet \
+	saverdir=%{_libdir}/gnome-screensaver \
+	themesdir=%{_desktopdir}/screensavers
+# </make-jN-workaround>
+
 %{__make} \
 	saverdir=%{_libdir}/gnome-screensaver \
 	themesdir=%{_desktopdir}/screensavers
