@@ -2,6 +2,7 @@
 # TODO:
 #	- update aflinta's delete.patch
 #	- check if fs patch is still needed, propably causes weird effects on my box
+#	- use system mono-addins
 #
 %include	/usr/lib/rpm/macros.mono
 #
