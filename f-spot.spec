@@ -1,7 +1,6 @@
 #
 # TODO:
-#	- update aflinta's delete.patch
-#	- check if fs patch is still needed, propably causes weird effects on my box
+#	- update aflinta's delete.patch and send it upstream
 #	- use system mono-addins
 #
 %include	/usr/lib/rpm/macros.mono
@@ -10,14 +9,13 @@ Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.4.2
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.4/%{name}-%{version}.tar.bz2
 # Source0-md5:	970b8c9de9acf97c90e3d9608827606d
 Patch0:		%{name}-exec.patch
 Patch1:		%{name}-dir.patch
-Patch2:		%{name}-fs.patch
 Patch3:		%{name}-delete.patch
 # http://bugzilla.gnome.org/show_bug.cgi?id=516620
 Patch4:		%{name}-DESTDIR.patch
@@ -76,7 +74,6 @@ Moduł F-Spot dla gnome-screensavera.
 %setup -q
 %patch0 -p1
 %patch1 -p0
-%patch2 -p1
 #%patch3 -p0
 %patch4 -p1
 
