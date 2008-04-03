@@ -47,6 +47,7 @@ Requires(post,postun):	scrollkeeper
 Requires:	dotnet-libgphoto2-sharp
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
+ExcludeArch:	sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
