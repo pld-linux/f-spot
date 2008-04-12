@@ -2,6 +2,8 @@
 # TODO:
 #	- update aflinta's delete.patch and send it upstream
 #	- use system mono-addins
+#	- doesn't build with dotnet-gnome-sharp-2.20.0
+#	  (DateCommands.cs(25,40): The type or namespace name `DateEdit' could not be found)
 #
 %include	/usr/lib/rpm/macros.mono
 #
@@ -16,6 +18,7 @@ Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.4/%{name}-%{version}
 # Source0-md5:	970b8c9de9acf97c90e3d9608827606d
 Patch0:		%{name}-exec.patch
 Patch1:		%{name}-dir.patch
+Patch2:		%{name}-ac.patch
 Patch3:		%{name}-delete.patch
 # http://bugzilla.gnome.org/show_bug.cgi?id=516620
 Patch4:		%{name}-DESTDIR.patch
@@ -24,6 +27,7 @@ BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
+BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils
@@ -76,6 +80,7 @@ Moduł F-Spot dla gnome-screensavera.
 %setup -q
 %patch0 -p1
 %patch1 -p0
+%patch2 -p1
 #%patch3 -p0
 %patch4 -p1
 
