@@ -1,0 +1,10 @@
+--- f-spot-0.4.2/src/Makefile.am.orig	2008-04-13 01:03:25.325063605 +0200
++++ f-spot-0.4.2/src/Makefile.am	2008-04-13 01:03:36.824273289 +0200
+@@ -316,6 +316,7 @@
+ 	$(GCONF_PKG)				\
+ 	$(GTKHTML_SHARP_PKG)			\
+ 	-pkg:glade-sharp-2.0			\
++	-pkg:gnome-sharp-2.0			\
+ 	-pkg:gnome-vfs-sharp-2.0
+ 
+ F_SPOT_DISTRESOURCES =			\
