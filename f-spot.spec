@@ -18,12 +18,9 @@ Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.4/%{name}-%{version}
 # Source0-md5:	8b9e21982f08bbac66b582bfd7515538
 Patch0:		%{name}-exec.patch
 Patch1:		%{name}-dir.patch
-Patch2:		%{name}-ac.patch
-Patch3:		%{name}-delete.patch
-# http://bugzilla.gnome.org/show_bug.cgi?id=516620
-Patch4:		%{name}-DESTDIR.patch
-Patch5:		%{name}-gtkhtml3.patch
-Patch6:		%{name}-build.patch
+Patch2:		%{name}-delete.patch
+Patch3:		%{name}-gtkhtml3.patch
+Patch4:		%{name}-build.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
@@ -82,11 +79,9 @@ Moduł F-Spot dla gnome-screensavera.
 %setup -q
 %patch0 -p1
 %patch1 -p0
-#%patch2 -p1
-#%patch3 -p0
-#%patch4 -p1
-#%patch5 -p1
-%patch6 -p1
+#%patch2 -p0
+#%patch3 -p1
+%patch4 -p1
 
 %build
 %{__intltoolize}
