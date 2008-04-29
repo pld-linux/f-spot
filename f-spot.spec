@@ -10,12 +10,12 @@
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.4.2
-Release:	1
+Version:	0.4.3
+Release:	0.1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	970b8c9de9acf97c90e3d9608827606d
+# Source0-md5:	8b9e21982f08bbac66b582bfd7515538
 Patch0:		%{name}-exec.patch
 Patch1:		%{name}-dir.patch
 Patch2:		%{name}-ac.patch
@@ -82,10 +82,10 @@ Moduł F-Spot dla gnome-screensavera.
 %setup -q
 %patch0 -p1
 %patch1 -p0
-%patch2 -p1
+#%patch2 -p1
 #%patch3 -p0
-%patch4 -p1
-%patch5 -p1
+#%patch4 -p1
+#%patch5 -p1
 %patch6 -p1
 
 %build
