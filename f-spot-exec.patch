@@ -1,9 +1,10 @@
---- f-spot-0.4.1/src/f-spot.in.orig	2007-12-12 06:39:10.401468565 +0100
-+++ f-spot-0.4.1/src/f-spot.in	2007-12-12 06:40:11.392164051 +0100
-@@ -54,5 +54,5 @@
- if $run_mdb; then
- 	mdb $EXE_TO_RUN -args "$@"
+diff -Nru f-spot-0.4.4/src/f-spot.in f-spot-0.4.4-exec/src/f-spot.in
+--- f-spot-0.4.4/src/f-spot.in	2008-05-16 20:52:42.000000000 +0200
++++ f-spot-0.4.4-exec/src/f-spot.in	2008-05-29 09:26:36.000000000 +0200
+@@ -67,5 +67,5 @@
+ elif $run_gdb; then
+ 	gdb --eval-command=run --args mono $MONO_OPTIONS $EXE_TO_RUN "$@"
  else
--	exec -a @PACKAGE@ mono $MONO_OPTIONS $EXE_TO_RUN "$@"
-+	exec mono $MONO_OPTIONS $EXE_TO_RUN "$@"
+-	exec -a @PACKAGE@ $DBUSLAUNCH mono $MONO_OPTIONS $EXE_TO_RUN "$@"
++	exec $DBUSLAUNCH mono $MONO_OPTIONS $EXE_TO_RUN "$@"
  fi
