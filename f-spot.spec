@@ -11,7 +11,7 @@ Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.4.4
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.4/%{name}-%{version}.tar.bz2
@@ -149,12 +149,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/*.addins
 %dir %{_libdir}/%{name}/extensions
 %{_libdir}/%{name}/extensions/*
+%dir %{_libdir}/gio-sharp-unstable
+%{_libdir}/gio-sharp-unstable/*.dll
+%{_libdir}/gio-sharp-unstable/*.dll.config
 %attr(755,root,root) %{_libdir}/%{name}/lib*.so*
 %{_libdir}/%{name}/*.dll
 %{_libdir}/%{name}/*.dll.config
 %{_libdir}/%{name}/*.exe.config
 %{_desktopdir}/*.desktop
 %{_pkgconfigdir}/f-spot.pc
+%{_pkgconfigdir}/gio-sharp-unstable.pc
 
 %files screensaver
 %defattr(644,root,root,755)
