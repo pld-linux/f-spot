@@ -10,17 +10,16 @@
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.4.4
+Version:	0.5.0.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	54cab07d300c0bef9049b0aeea196d1b
+Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	39255a708407e5649e213a5ca41e681c
 Patch0:		%{name}-exec.patch
 Patch1:		%{name}-dir.patch
 Patch2:		%{name}-delete.patch
 Patch3:		%{name}-gtkhtml3.patch
-Patch4:		%{name}-build.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
@@ -81,7 +80,6 @@ Moduł F-Spot dla gnome-screensavera.
 %patch1 -p1
 #%patch2 -p0
 #%patch3 -p1
-%patch4 -p1
 
 %build
 %{__intltoolize}
@@ -95,17 +93,17 @@ Moduł F-Spot dla gnome-screensavera.
 	--with-gnome-screensaver=%{_prefix}
 
 # <make-jN-workaround>
-%{__make} -C extensions/FlickrExport/FlickrNet \
-	saverdir=%{_libdir}/gnome-screensaver \
-	themesdir=%{_desktopdir}/screensavers
+#%{__make} -C extensions/FlickrExport/FlickrNet \
+#	saverdir=%{_libdir}/gnome-screensaver \
+#	themesdir=%{_desktopdir}/screensavers
 
-%{__make} -C extensions/PicasaWebExport/google-sharp \
-	saverdir=%{_libdir}/gnome-screensaver \
-	themesdir=%{_desktopdir}/screensavers
+#%{__make} -C extensions/PicasaWebExport/google-sharp \
+#	saverdir=%{_libdir}/gnome-screensaver \
+#	themesdir=%{_desktopdir}/screensavers
 
-%{__make} -C extensions/SmugMugExport/SmugMugNet \
-	saverdir=%{_libdir}/gnome-screensaver \
-	themesdir=%{_desktopdir}/screensavers
+#%{__make} -C extensions/SmugMugExport/SmugMugNet \
+#	saverdir=%{_libdir}/gnome-screensaver \
+#	themesdir=%{_desktopdir}/screensavers
 # </make-jN-workaround>
 
 %{__make} \
