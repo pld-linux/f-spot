@@ -26,6 +26,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.16.0
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.1
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils
