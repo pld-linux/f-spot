@@ -1,0 +1,51 @@
+diff -urN f-spot-0.5.0.3/configure.in f-spot-0.5.0.3.new/configure.in
+--- f-spot-0.5.0.3/configure.in	2008-10-17 20:54:15.000000000 +0200
++++ f-spot-0.5.0.3.new/configure.in	2008-10-18 17:19:17.000000000 +0200
+@@ -346,10 +346,6 @@
+ libjpegtran/Makefile
+ libfspot/Makefile
+ libgphoto2-sharp/Makefile
+-mono-addins/Makefile
+-mono-addins/Mono.Addins/Makefile
+-mono-addins/Mono.Addins.Gui/Makefile
+-mono-addins/Mono.Addins.Setup/Makefile
+ semweb/Makefile
+ tools/Makefile
+ po/Makefile.in
+diff -urN f-spot-0.5.0.3/Makefile.am f-spot-0.5.0.3.new/Makefile.am
+--- f-spot-0.5.0.3/Makefile.am	2008-09-26 10:27:39.000000000 +0200
++++ f-spot-0.5.0.3.new/Makefile.am	2008-10-18 17:27:14.000000000 +0200
+@@ -12,7 +12,6 @@
+ 	libfspot	\
+ 	libgphoto2-sharp \
+ 	Tao		\
+-	mono-addins	\
+ 	tools		\
+ 	po		\
+ 	src		\
+diff -urN f-spot-0.5.0.3/Makefile.include f-spot-0.5.0.3.new/Makefile.include
+--- f-spot-0.5.0.3/Makefile.include	2008-07-08 13:01:42.000000000 +0200
++++ f-spot-0.5.0.3.new/Makefile.include	2008-10-18 17:23:21.000000000 +0200
+@@ -3,9 +3,6 @@
+ 
+ ## Directories
+ 
+-DIR_ADDINS_ADDINS = $(top_builddir)/mono-addins/Mono.Addins
+-DIR_ADDINS_GUI = $(top_builddir)/mono-addins/Mono.Addins.Gui
+-DIR_ADDINS_SETUP = $(top_builddir)/mono-addins/Mono.Addins.Setup
+ DIR_DOCS = $(top_builddir)/docs
+ DIR_EXTENSIONS = $(top_builddir)/extensions
+ DIR_GLITZ = $(top_builddir)/glitz-sharp/src
+@@ -28,9 +25,9 @@
+ LINK_GLITZ = -r:$(DIR_GLITZ)/NDesk.Glitz.dll 
+ LINK_GPHOTO2 = -r:$(DIR_GPHOTO2)/libgphoto2-sharp.dll
+ LINK_MONO_ADDINS =					\
+-	-r:$(DIR_ADDINS_ADDINS)/Mono.Addins.dll		\
+-	-r:$(DIR_ADDINS_SETUP)/Mono.Addins.Setup.dll	\
+-	-r:$(DIR_ADDINS_GUI)/Mono.Addins.Gui.dll
++	-pkg:mono-addins				\
++	-pkg:mono-addins-setup				\
++	-pkg:mono-addins-gui
+ LINK_SEMWEB = -r:$(DIR_SEMWEB)/SemWeb.dll
+ LINK_TAO = 								\
+ 	-r:$(DIR_TAO_OPENGL)/Tao.OpenGl.dll				\
