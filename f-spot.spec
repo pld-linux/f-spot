@@ -1,7 +1,6 @@
 #
 # TODO:
 #	- update aflinta's delete.patch and send it upstream
-#	- use system mono-addins (definitely don't provide Mono.Addins*)
 #	- use system libgphoto2-sharp.dll, NDesk.Glitz.dll, gnome-keyring-sharp.dll
 #	  Tao (http://www.taoframework.com/), semweb (http://taubz.for.net/code/semweb)
 #
@@ -10,27 +9,31 @@
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.5.0.2
+Version:	0.5.0.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	3bf5dd918f3f7f9db822a40a42963702
+# Source0-md5:	52db86f1dc715a3958425aa3d006c900
 Patch0:		%{name}-exec.patch
 Patch1:		%{name}-dir.patch
 Patch2:		%{name}-delete.patch
-Patch3:		%{name}-gtkhtml3.patch
+Patch3:		%{name}-system-mono-addins.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
+BuildRequires:	beagle-devel >= 0.3.0
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.16.0
+BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.1
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-common
 BuildRequires:	gnome-doc-utils
-BuildRequires:	intltool >= 0.35
+BuildRequires:	gnome-icon-theme
+BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	lcms-devel >= 1.12
 BuildRequires:	libexif-devel >= 1:0.6.13
 BuildRequires:	libgnomeui-devel >= 2.16.0
@@ -38,7 +41,8 @@ BuildRequires:	libgphoto2-devel >= 2.2.1
 BuildRequires:	libjpeg-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	mono-csharp >= 1.1.16.1
+BuildRequires:	mono-addins-devel
+BuildRequires:	mono-csharp >= 1.1.17
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -80,14 +84,15 @@ Moduł F-Spot dla gnome-screensavera.
 %patch0 -p1
 %patch1 -p1
 #%patch2 -p0
-#%patch3 -p1
+%patch3 -p1
 
 %build
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
-%{__automake}
 %{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--disable-static \
 	--disable-scrollkeeper \
@@ -121,8 +126,6 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/*.la
 
-[ -d $RPM_BUILD_ROOT%{_datadir}/locale/sr@latin ] || \
-	mv -f $RPM_BUILD_ROOT%{_datadir}/locale/sr@{Latn,latin}
 %find_lang %{name} --with-gnome --with-omf
 
 %clean
