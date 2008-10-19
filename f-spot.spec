@@ -18,7 +18,6 @@ Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.5/%{name}-%{version}
 Patch0:		%{name}-exec.patch
 Patch1:		%{name}-dir.patch
 Patch2:		%{name}-delete.patch
-Patch3:		%{name}-system-mono-addins.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
@@ -32,7 +31,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-common
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-icon-theme
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	lcms-devel >= 1.12
 BuildRequires:	libexif-devel >= 1:0.6.13
@@ -84,7 +83,6 @@ Moduł F-Spot dla gnome-screensavera.
 %patch0 -p1
 %patch1 -p1
 #%patch2 -p0
-%patch3 -p1
 
 %build
 %{__intltoolize}
