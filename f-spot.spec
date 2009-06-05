@@ -22,6 +22,7 @@ Patch3:		%{name}-r4681.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
+FIX PACKAGING: should not provide mono(Mono.Addins) = 0.3.0.0
 BuildRequires:	automake
 BuildRequires:	beagle-devel >= 0.3.0
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.16.0
