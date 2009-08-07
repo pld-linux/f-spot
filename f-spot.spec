@@ -9,20 +9,15 @@
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.5.0.3
-Release:	3
+Version:	0.6.0.0
+Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
-Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	52db86f1dc715a3958425aa3d006c900
-Patch0:		%{name}-exec.patch
-Patch1:		%{name}-dir.patch
-Patch2:		%{name}-delete.patch
-Patch3:		%{name}-r4681.patch
+Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	9115f9df72c5fc1c82eb46b3af01e67d
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
-FIX PACKAGING: should not provide mono(Mono.Addins) = 0.3.0.0
 BuildRequires:	automake
 BuildRequires:	beagle-devel >= 0.3.0
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.16.0
@@ -82,10 +77,6 @@ Moduł F-Spot dla gnome-screensavera.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-#%patch2 -p0
-%patch3 -p1
 
 %build
 %{__intltoolize}
@@ -99,12 +90,7 @@ Moduł F-Spot dla gnome-screensavera.
 	--disable-scrollkeeper \
 	--with-gnome-screensaver=%{_prefix}
 
-# <make-jN-workaround>
-%{__make} -C extensions/Exporters/FlickrExport/FlickrNet \
-	saverdir=%{_libdir}/gnome-screensaver \
-	themesdir=%{_desktopdir}/screensavers
-
-%{__make} \
+%{__make} -j 1 \
 	saverdir=%{_libdir}/gnome-screensaver \
 	themesdir=%{_desktopdir}/screensavers
 
@@ -144,16 +130,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/*.addins
 %dir %{_libdir}/%{name}/extensions
 %{_libdir}/%{name}/extensions/*
-%dir %{_libdir}/gio-sharp-unstable
-%{_libdir}/gio-sharp-unstable/*.dll
-%{_libdir}/gio-sharp-unstable/*.dll.config
 %attr(755,root,root) %{_libdir}/%{name}/lib*.so*
 %{_libdir}/%{name}/*.dll
+%{_libdir}/%{name}/*.mdb
 %{_libdir}/%{name}/*.dll.config
 %{_libdir}/%{name}/*.exe.config
 %{_desktopdir}/*.desktop
 %{_pkgconfigdir}/f-spot.pc
-%{_pkgconfigdir}/gio-sharp-unstable.pc
 
 %files screensaver
 %defattr(644,root,root,755)
