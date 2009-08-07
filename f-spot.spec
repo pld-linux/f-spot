@@ -5,6 +5,7 @@
 #	  Tao (http://www.taoframework.com/), semweb (http://taubz.for.net/code/semweb)
 #
 %include	/usr/lib/rpm/macros.mono
+%define		_noautoreq 'mono(Mono.*)' 'mono(FlickrNet)' 'mono(gnome-keyring-sharp)'
 #
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
@@ -23,6 +24,7 @@ BuildRequires:	beagle-devel >= 0.3.0
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.1
+BuildRequires:	dotnet-libgphoto2-sharp-devel >= 2.1.4
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common
