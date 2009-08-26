@@ -1,6 +1,5 @@
 #
 # TODO:
-#	- update aflinta's delete.patch and send it upstream
 #	- use system libgphoto2-sharp.dll, NDesk.Glitz.dll, gnome-keyring-sharp.dll
 #	  Tao (http://www.taoframework.com/), semweb (http://taubz.for.net/code/semweb)
 #
@@ -10,12 +9,12 @@
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
-Version:	0.6.0.0
+Version:	0.6.1.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	9115f9df72c5fc1c82eb46b3af01e67d
+# Source0-md5:	cfc477a33c418a630184f743d382bc9d
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
@@ -79,6 +78,8 @@ Moduł F-Spot dla gnome-screensavera.
 
 %prep
 %setup -q
+# 0.6.1.0 is fucked up and does not contain test sources
+echo > tests/Makefile.am
 
 %build
 %{__intltoolize}
@@ -92,7 +93,7 @@ Moduł F-Spot dla gnome-screensavera.
 	--disable-scrollkeeper \
 	--with-gnome-screensaver=%{_prefix}
 
-%{__make} -j 1 \
+%{__make} -j1 \
 	saverdir=%{_libdir}/gnome-screensaver \
 	themesdir=%{_desktopdir}/screensavers
 
