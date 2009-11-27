@@ -20,6 +20,7 @@ BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	beagle-devel >= 0.3.0
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.1
