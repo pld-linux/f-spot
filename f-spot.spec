@@ -12,6 +12,7 @@ Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	f7d52adbf280c972adccd66338e49f3d
 Patch0:		%{name}-taglib.patch
+Patch1:		%{name}-PixbufLoader.patch
 URL:		http://www.gnome.org/projects/f-spot/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	autoconf
@@ -71,6 +72,7 @@ Moduł F-Spot dla gnome-screensavera.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__intltoolize}
