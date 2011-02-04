@@ -6,7 +6,7 @@ Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.8.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.8/%{name}-%{version}.tar.bz2
@@ -26,8 +26,8 @@ BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-icon-theme
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	lcms-devel >= 1.12
-BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libgnome-keyring-devel
+BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libtool
 BuildRequires:	libunique-devel
 BuildRequires:	mono-addins-devel
@@ -37,7 +37,7 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	sqlite3-devel
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Suggests:	dcraw
