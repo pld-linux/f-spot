@@ -1,12 +1,9 @@
-#
 %include	/usr/lib/rpm/macros.mono
-%define		_noautoreq 'mono(Mono.*)' 'mono(FlickrNet)' 'mono(gnome-keyring-sharp)'
-#
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.8.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.8/%{name}-%{version}.tar.bz2
@@ -40,12 +37,15 @@ Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
+Requires:	mono-addins
 Suggests:	dcraw
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 ExclusiveArch:	%{ix86} %{x8664} arm hppa ia64 ppc s390 s390x sparc sparcv9
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautoreq mono(Mono.*) mono(FlickrNet) mono(gnome-keyring-sharp)
 
 %description
 F-Spot is an application designed to provide personal photo management
