@@ -3,7 +3,7 @@ Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.8.2
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.8/%{name}-%{version}.tar.bz2
@@ -40,6 +40,7 @@ Requires(post,postun):	scrollkeeper
 Requires:	mono-addins
 Suggests:	dcraw
 Suggests:	udev-libgphoto2
+Suggests:	dbus-x11
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 ExclusiveArch:	%{ix86} %{x8664} arm hppa ia64 ppc s390 s390x sparc sparcv9
