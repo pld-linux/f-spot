@@ -1,9 +1,12 @@
+#
+%bcond_with	gnome2
+#
 %include	/usr/lib/rpm/macros.mono
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
 Version:	0.8.2
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://ftp.gnome.org/Public/GNOME/sources/f-spot/0.8/%{name}-%{version}.tar.bz2
@@ -138,7 +141,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/f-spot.pc
 %{_sysconfdir}/gconf/schemas/f-spot.schemas
 
+%if %{with gnome2}
 %files screensaver
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gnome-screensaver/f-spot-screensaver
 %{_desktopdir}/screensavers/f-spot-screensaver.desktop
+%endif
