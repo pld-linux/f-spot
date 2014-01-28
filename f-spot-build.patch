@@ -1,0 +1,281 @@
+diff -ur f-spot-0.8.2/lib/Hyena/Hyena.Gui/Makefile.am f-spot-0.8.2.build/lib/Hyena/Hyena.Gui/Makefile.am
+--- f-spot-0.8.2/lib/Hyena/Hyena.Gui/Makefile.am	2010-11-14 12:42:01.000000000 +0100
++++ f-spot-0.8.2.build/lib/Hyena/Hyena.Gui/Makefile.am	2014-01-28 23:50:47.341290737 +0100
+@@ -1,5 +1,5 @@
+ ASSEMBLY = Hyena.Gui
+-ASSEMBLY_BUILD_FLAGS = -unsafe
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = -r:ICSharpCode.SharpZipLib -r:Mono.Posix -r:System -r:System.Core -r:Mono.Cairo \
+ 	   $(GTKSHARP_LIBS) $(GLIBSHARP_LIBS) \
+diff -ur f-spot-0.8.2/src/Clients/MainApp/FSpot/GroupSelector.cs f-spot-0.8.2.build/src/Clients/MainApp/FSpot/GroupSelector.cs
+--- f-spot-0.8.2/src/Clients/MainApp/FSpot/GroupSelector.cs	2010-12-19 14:34:41.000000000 +0100
++++ f-spot-0.8.2.build/src/Clients/MainApp/FSpot/GroupSelector.cs	2014-01-28 23:57:46.417960244 +0100
+@@ -430,8 +430,9 @@
+ 			{
+ 				bounds.Height = selector.background.Height;
+ 				bounds.Y = selector.background.Y;
+-				bounds.X = selector.BoxX (item);
+-				bounds.Width = Math.Max (selector.BoxX (item + 1) - bounds.X, 1);
++				int X = selector.BoxX (item);
++				bounds.X = X;
++				bounds.Width = Math.Max (selector.BoxX (item + 1) - X, 1);
+ 
+ 				if (item < 0 || item > selector.box_counts.Length - 1)
+ 					return;
+diff -ur f-spot-0.8.2/src/Clients/MainApp/Makefile.am f-spot-0.8.2.build/src/Clients/MainApp/Makefile.am
+--- f-spot-0.8.2/src/Clients/MainApp/Makefile.am	2010-11-28 15:57:31.000000000 +0100
++++ f-spot-0.8.2.build/src/Clients/MainApp/Makefile.am	2014-01-28 23:55:37.557959372 +0100
+@@ -1,7 +1,7 @@
+ ASSEMBLY = f-spot
+ TARGET = exe
+ LINK = $(REF_FSPOT)
+-ASSEMBLY_BUILD_FLAGS = -unsafe
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ 
+ SOURCES =  \
+ 	DependentListStore.cs \
+diff -ur f-spot-0.8.2/src/Core/FSpot.Core/Makefile.am f-spot-0.8.2.build/src/Core/FSpot.Core/Makefile.am
+--- f-spot-0.8.2/src/Core/FSpot.Core/Makefile.am	2010-10-28 21:49:34.000000000 +0200
++++ f-spot-0.8.2.build/src/Core/FSpot.Core/Makefile.am	2014-01-28 23:53:11.797958383 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Core
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_CORE)
+ 
+diff -ur f-spot-0.8.2/src/Core/FSpot.Gui/Makefile.am f-spot-0.8.2.build/src/Core/FSpot.Gui/Makefile.am
+--- f-spot-0.8.2/src/Core/FSpot.Gui/Makefile.am	2010-09-08 18:10:22.000000000 +0200
++++ f-spot-0.8.2.build/src/Core/FSpot.Gui/Makefile.am	2014-01-28 23:54:15.231292146 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Gui
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_GUI)
+ 
+diff -ur f-spot-0.8.2/src/Core/FSpot.Platform/Makefile.am f-spot-0.8.2.build/src/Core/FSpot.Platform/Makefile.am
+--- f-spot-0.8.2/src/Core/FSpot.Platform/Makefile.am	2010-08-11 19:15:08.000000000 +0200
++++ f-spot-0.8.2.build/src/Core/FSpot.Platform/Makefile.am	2014-01-28 23:54:42.891292335 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Platform
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_PLATFORM)
+ 
+diff -ur f-spot-0.8.2/src/Core/FSpot.Query/Makefile.am f-spot-0.8.2.build/src/Core/FSpot.Query/Makefile.am
+--- f-spot-0.8.2/src/Core/FSpot.Query/Makefile.am	2010-08-11 19:15:08.000000000 +0200
++++ f-spot-0.8.2.build/src/Core/FSpot.Query/Makefile.am	2014-01-28 23:53:47.877958627 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Query
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_QUERY)
+ 
+diff -ur f-spot-0.8.2/src/Core/FSpot.Utils/Makefile.am f-spot-0.8.2.build/src/Core/FSpot.Utils/Makefile.am
+--- f-spot-0.8.2/src/Core/FSpot.Utils/Makefile.am	2010-12-19 14:34:42.000000000 +0100
++++ f-spot-0.8.2.build/src/Core/FSpot.Utils/Makefile.am	2014-01-28 23:52:29.954624766 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Utils
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_UTILS)
+ 
+diff -ur f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.Blackout/Makefile.am f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.Blackout/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.Blackout/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.Blackout/Makefile.am	2014-01-28 23:58:39.924627275 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Editors.BlackoutEditor
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_BLACKOUTEDITOR)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.BW/Makefile.am f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.BW/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.BW/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.BW/Makefile.am	2014-01-28 23:59:03.614627434 +0100
+@@ -1,5 +1,5 @@
+ ASSEMBLY = FSpot.Editors.BWEditor
+-ASSEMBLY_BUILD_FLAGS = -unsafe
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_BWEDITOR)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.Flip/Makefile.am f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.Flip/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.Flip/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.Flip/Makefile.am	2014-01-28 23:59:36.767960992 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Editors.FlipEditor
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_FLIPEDITOR)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.Pixelate/Makefile.am f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.Pixelate/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.Pixelate/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.Pixelate/Makefile.am	2014-01-28 23:59:57.661294468 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Editors.PixelateEditor
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_PIXELATEEDITOR)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.Resize/Makefile.am f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.Resize/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Editors/FSpot.Editors.Resize/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Editors/FSpot.Editors.Resize/Makefile.am	2014-01-29 00:00:12.954627905 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Editors.ResizeEditor
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_RESIZEEDITOR)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.CD/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.CD/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.CD/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.CD/Makefile.am	2014-01-29 00:00:36.707961399 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.CD
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_CDEXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Facebook/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Facebook/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Facebook/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Facebook/Makefile.am	2014-01-29 00:00:55.854628196 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.Facebook
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_FACEBOOKEXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Flickr/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Flickr/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Flickr/Makefile.am	2010-08-14 20:45:27.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Flickr/Makefile.am	2014-01-29 00:01:05.564628262 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.Flickr
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_FLICKREXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Folder/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Folder/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Folder/Makefile.am	2010-08-14 20:45:27.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Folder/Makefile.am	2014-01-29 00:01:15.581294997 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.Folder
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_FOLDEREXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Gallery/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Gallery/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Gallery/Makefile.am	2010-09-08 18:10:07.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Gallery/Makefile.am	2014-01-29 00:01:24.834628392 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.Gallery
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_GALLERYEXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.PicasaWeb/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.PicasaWeb/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.PicasaWeb/Makefile.am	2010-09-08 18:10:07.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.PicasaWeb/Makefile.am	2014-01-29 00:01:35.934628467 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.PicasaWeb
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_PICASAWEBEXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.SmugMug/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.SmugMug/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.SmugMug/Makefile.am	2010-09-08 18:10:07.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.SmugMug/Makefile.am	2014-01-29 00:01:43.911295189 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.SmugMug
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_SMUGMUGEXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Tabblo/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Tabblo/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Tabblo/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Tabblo/Makefile.am	2014-01-29 00:01:52.017961909 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.Tabblo
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_TABBLOEXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Zip/Makefile.am f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Zip/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Exporters/FSpot.Exporters.Zip/Makefile.am	2010-09-08 18:10:07.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Exporters/FSpot.Exporters.Zip/Makefile.am	2014-01-29 00:02:00.621295300 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.Zip
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_ZIPEXPORT)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.ChangePhotoPath/Makefile.am f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.ChangePhotoPath/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.ChangePhotoPath/Makefile.am	2010-09-08 18:10:07.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.ChangePhotoPath/Makefile.am	2014-01-29 00:02:15.101295400 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Tools.ChangePhotoPath
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_CHANGEPHOTOPATH)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.DevelopInUFraw/Makefile.am f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.DevelopInUFraw/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.DevelopInUFraw/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.DevelopInUFraw/Makefile.am	2014-01-29 00:02:28.354628822 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Tools.DevelopInUFRaw
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_DEVELOPINUFRAW)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.LiveWebGallery/Makefile.am f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.LiveWebGallery/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.LiveWebGallery/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.LiveWebGallery/Makefile.am	2014-01-29 00:02:38.321295557 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Tools.LiveWebGallery
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_LIVEWEBGALLERY)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.MergeDb/Makefile.am f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.MergeDb/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.MergeDb/Makefile.am	2010-09-08 18:10:07.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.MergeDb/Makefile.am	2014-01-29 00:02:46.761295615 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Tools.MergeDb
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_MERGEDB)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.RawPlusJpeg/Makefile.am f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.RawPlusJpeg/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.RawPlusJpeg/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.RawPlusJpeg/Makefile.am	2014-01-29 00:02:55.201295671 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Tools.RawPlusJpeg
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_RAWPLUSJPEG)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.RetroactiveRoll/Makefile.am f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.RetroactiveRoll/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.RetroactiveRoll/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.RetroactiveRoll/Makefile.am	2014-01-29 00:03:02.434629055 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Tools.RetroactiveRoll
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_RETROACTIVEROLL)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.ScreensaverConfig/Makefile.am f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.ScreensaverConfig/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Tools/FSpot.Tools.ScreensaverConfig/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Tools/FSpot.Tools.ScreensaverConfig/Makefile.am	2014-01-29 00:03:09.934629104 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Tools.ScreensaverConfig
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_SCREENSAVERCONFIG)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
+diff -ur f-spot-0.8.2/src/Extensions/Transitions/FSpot.Transitions.Cover/Makefile.am f-spot-0.8.2.build/src/Extensions/Transitions/FSpot.Transitions.Cover/Makefile.am
+--- f-spot-0.8.2/src/Extensions/Transitions/FSpot.Transitions.Cover/Makefile.am	2010-08-11 19:15:09.000000000 +0200
++++ f-spot-0.8.2.build/src/Extensions/Transitions/FSpot.Transitions.Cover/Makefile.am	2014-01-29 00:03:23.801295865 +0100
+@@ -1,4 +1,5 @@
+ ASSEMBLY = FSpot.Exporters.CoverTransition
++ASSEMBLY_BUILD_FLAGS = -unsafe -sdk:4
+ TARGET = library
+ LINK = $(REF_FSPOT_EXTENSION_COVERTRANSITION)
+ INSTALL_DIR = $(EXTENSIONS_INSTALL_DIR)
