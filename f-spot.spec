@@ -22,7 +22,7 @@ BuildRequires:	dotnet-gnome-keyring-sharp-devel
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.1
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-doc-utils
 BuildRequires:	gnome-icon-theme
 BuildRequires:	intltool >= 0.40.0
