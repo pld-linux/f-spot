@@ -1,7 +1,6 @@
 #
 %bcond_without	gnome2
 #
-%include	/usr/lib/rpm/macros.mono
 Summary:	Personal photo manager
 Summary(pl.UTF-8):	Menedżer prywatnych galerii fotograficznych
 Name:		f-spot
